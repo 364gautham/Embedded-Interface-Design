@@ -14,9 +14,9 @@ This software is built using python3
 
 Install pyqt5 and pyqt5 tools.
 
-*sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
+_sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools_
 
-*sudo apt-get install qttools5-dev-tools
+_sudo apt-get install qttools5-dev-tools_
 
 Basic UI is generated using QTcreator: Command to get .py from .ui file: _pyuic5 file.ui> file.py_  
 
