@@ -8,7 +8,7 @@ and average of the values collected in shown on UI window, user has a feature to
 for temperature crossing a threshold value(_higher threshold_). User can also see the plot of the
 values got in timely manner (upto 100 values and refreshed). System also saves the image of the plot.
 
-** Installation Instructions**
+**Installation Instructions**
 This software is built using python3.
 Install pyqt5 and pyqt5 tools.
 1.sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
