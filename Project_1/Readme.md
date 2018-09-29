@@ -18,20 +18,20 @@ Install pyqt5 and pyqt5 tools.
 
 *sudo apt-get install qttools5-dev-tools
 
-Basic UI is generated using QTcreator: Command to get .py from .ui file: _pyuic5 file.ui> file.py  
+Basic UI is generated using QTcreator: Command to get .py from .ui file: _pyuic5 file.ui> file.py_  
 
 Software needs importing certain python modules for successful operation:
 For Sensor Readings : Adafruit_DHT module  [link!](https://github.com/adafruit/Adafruit_Python_DHT)
 For Matplotlib :Matplotlib module and required dependencies.[link!](https://matplotlib.org/users/installing.html)
 
-Code can be run using .py file : command is : python3 proj_ui.py
+Code can be run using .py file : command is : _python3 proj_ui.py_
 
 _Project Additions_:  
 
 Basic requirements of getting temperature and humidity values with the time of request is done
 Sensor connection state is also checked.
 
-Additons:
+Additions:
 
 1. Computes average of Temperature and Humidity on values got from timer
 2. Plot of graph using values got using timer in runtime
