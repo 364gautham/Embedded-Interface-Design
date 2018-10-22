@@ -5,7 +5,7 @@ import tornado.web
 import socket
 import sqlite3 as sq
 import datetime
-
+import Adafruit_DHT as sens
 '''
 This is a simple Websocket Echo server that uses the Tornado websocket handler.
 Please run `pip install tornado` with python of version 2.7.9 or greater to install tornado.
@@ -15,14 +15,14 @@ Messages are output to the terminal for debuggin purposes.
     
 class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
-        print 'new connection'
+        print ("new connection")
       
     def on_message(self, message):
         conn = sq.connect('project2.db')
         c = conn.cursor()
-        print 'message received:  %s' % message
+        print ("message received:  %s" % message)
         # Reverse Message and send it back
-        print 'sending back message: %s' % message[::-1]
+        print ("sending back message: %s" % message[::-1])
         if message=="Min_tC":
             c.execute("SELECT * FROM SENSOR_VAL WHERE TEMP_C IS (SELECT MIN(TEMP_C) FROM SENSOR_VAL)")
             element=c.fetchone()
@@ -70,12 +70,33 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         elif message=="Last_h":
             c.execute("SELECT * FROM SENSOR_VAL ORDER BY TIMESTAMP DESC LIMIT 1")
             element=c.fetchone()
-            send_var=(str(element[2]) + ',' + str(element[3]))          
+            send_var=(str(element[2]) + ',' + str(element[3]))
+        elif message=="Cur_tC":
+            temp,humidity = sens.read(22,4)
+            if temp==None:
+                send_var=("NA" + ',' +"NA" + ',' +str(datetime.datetime.now()))
+            else:    
+                send_var=(str(temp) + ',' +str(humidity) + ',' +str(datetime.datetime.now()))
+        elif message=="Cur_tF":
+            temp,humidity = sens.read(22,4)
+            if temp==None:
+                send_var=("NA" + ',' +"NA" + ',' +str(datetime.datetime.now()))
+            else:
+                temp = '{0:.2f}'.format(temp)
+                temp_f = (float(temp) * (9/5.0)) + 32
+                send_var=(str(temp_f) + ',' +str(humidity) + ',' +str(datetime.datetime.now()))
+        elif message=="status":
+            temp,humidity = sens.read(22,4)
+            if temp==None:
+                send_var=("Sensor Disconnected")
+            else:
+                send_var=("Sensor Connected")
+
         self.write_message(send_var)
         conn.close()
  
     def on_close(self):
-        print 'connection closed'
+        print ("connection closed")
  
     def check_origin(self, origin):
         return True
@@ -89,7 +110,7 @@ if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(8888)
     myIP = socket.gethostbyname(socket.gethostname())
-    print '*** Websocket Server Started at %s***' % myIP
+    print ("*** Websocket Server Started at %s***" % myIP)
     tornado.ioloop.IOLoop.instance().start()
 
 

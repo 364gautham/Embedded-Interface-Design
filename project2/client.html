@@ -62,8 +62,9 @@
 	    if(sel==5){$("#Min_humid").text(data[0]);$("#time5").text(data[1]);sel=0;}
 	    if(sel==6){$("#Max_humid").text(data[0]);$("#time6").text(data[1]);sel=0;}
 	    if(sel==7){$("#Last_humid").text(data[0]);$("#time7").text(data[1]);sel=0;}
-	    if(sel==8){$("#Avg_humid").text(data[0]);$("#time8").text(data[1]);sel=0;}
-		
+	    if(sel==8){$("#Avg_humid").text(data[0]);$("#time8").text(data[1]);sel=0;}status
+	    if(sel==9){$("#Cur_Temp").text(data[0]);$("#Cur_humid").text(data[1]);$("#Cur_time").text(data[2]);sel=0;}
+	    if(sel==10){$("#status").text(data[0]);sel=0;}		
             };
  
           // Close Websocket callback
@@ -132,6 +133,16 @@
             log("Sending Message: Average Humid Request");
             ws.send("Avg_h");
         });
+        $("#Refresh").click(function(evt) {
+		sel=9;
+            log("Sending Message: Current Weather Request");
+            ws.send("Cur_t"+document.querySelector('input[name="unit"]:checked').value);
+        });
+        $("#Status").click(function(evt) {
+		sel=10;
+            log("Sending Message: check connection status");
+            ws.send("status");
+        });
  
       });
     </script>
@@ -152,7 +163,7 @@
 	<input type="radio" name="unit" value="C" checked> &deg;C
 	<input type="radio" name="unit" value="F" > &deg;F 
     </h4>
-    <h4> Connection Status <div id="status">..</div></h4>
+    <h4> <button id="Status">check</button>Connection Status <div id="status">..</div></h4>
     </div>
 
     <div id="temp_display">
@@ -168,8 +179,10 @@
     <h4><button id="Avg_Humid">update</button> Average Humidity: <div id="Avg_humid">..</div>% --- Time : <div id="time8">..</div></h4>  </h4>
     </div>
     <div id="Cur_display">
-    <h4><button id="Refresh">Refresh</button> Current Temperature: <div id="Cur_Temp">.. </div> &deg<div id="temp_unit4">C </div>Current Humidity: <div id="Cur_humid"> %</div>  </h4>
+    <h4><button id="Refresh">Refresh</button> Current Temperature: <div id="Cur_Temp">.. </div> &deg<div id="temp_unit4">C </div>***Current Humidity: <div id="Cur_humid"> %</div>  </h4>
     <h4> Time : <div id="Cur_time">..</div></h4>
+
+    <h4><input type ="Button" onClick="window.print()" id="Print" value="Print"></h4>
     </div>
 
 

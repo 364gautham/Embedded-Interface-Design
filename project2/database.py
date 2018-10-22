@@ -32,6 +32,9 @@ c.execute("SELECT * FROM SENSOR_VAL WHERE HUMID IS (SELECT MAX(HUMID) FROM SENSO
 element = c.fetchone()
 print element[0], element[1], element[2], element[3]
 
+c.execute("DELETE FROM SENSOR_VAL")
+conn.commit()
+
 signal.signal(signal.SIGINT, signal_handler)
 while(1):
        pass 
