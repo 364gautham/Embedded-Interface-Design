@@ -40,10 +40,14 @@ Login Screen in HTML
 
 
 **References**:
-https://www.w3schools.com/html/html_intro.asp
-https://pythonspot.com/pyqt5/
-https://www.w3schools.com/howto/howto_css_login_form.asp
-http://www.sqlitetutorial.net/
+
+1. https://www.w3schools.com/html/html_intro.asp
+
+2. https://pythonspot.com/pyqt5/
+
+3. https://www.w3schools.com/howto/howto_css_login_form.asp
+
+4. http://www.sqlitetutorial.net/
 
 
 
