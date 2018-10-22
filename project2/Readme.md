@@ -1,4 +1,4 @@
-##Raspberry Pi Socket Communication
+**Raspberry Pi Socket Communication**
 
 This project involves web socket interface for two Raspberry Pi's 
 
@@ -13,7 +13,7 @@ these stored values using web page interface. Webpage Interface also notifies us
 **Installation and Pre-requisites**
 
 This software is built using python3
-Tornado Server [link!]https://os.mbed.com/cookbook/Websockets-Server
+Tornado Server: https://os.mbed.com/cookbook/Websockets-Server
 Client webpage uses HTML interface.
 
 Install pyqt5 and pyqt5 tools.
@@ -25,7 +25,7 @@ _sudo apt-get install qttools5-dev-tools_
 Basic UI is generated using QTcreator: Command to get .py from .ui file: _pyuic5 -x file.ui -o file.py_  
 
 Software needs importing certain python modules for successful operation:
-For Sensor Readings : Adafruit_DHT module  [link!](https://github.com/adafruit/Adafruit_Python_DHT)
+For Sensor Readings : Adafruit_DHT module : (https://github.com/adafruit/Adafruit_Python_DHT)
 
 
 Code can be run using .py file : 
@@ -40,10 +40,10 @@ Login Screen in HTML
 
 
 **References**:
-[link!]https://www.w3schools.com/html/html_intro.asp
-[link!]https://pythonspot.com/pyqt5/
-[link!]https://www.w3schools.com/howto/howto_css_login_form.asp
-[link!]http://www.sqlitetutorial.net/
+https://www.w3schools.com/html/html_intro.asp
+https://pythonspot.com/pyqt5/
+https://www.w3schools.com/howto/howto_css_login_form.asp
+http://www.sqlitetutorial.net/
 
 
 
