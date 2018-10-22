@@ -36,7 +36,9 @@ At Client : open Client.html file in browser and connect to server ip and port
 
 _Project Additions_:  
 
-Login Screen in HTML
+1. Login Screen in HTML
+
+2. Print Web page
 
 
 **References**:
