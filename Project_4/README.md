@@ -5,7 +5,7 @@
 ### Kiran Hegde and Gautham KA
 
 ## Installation Instructions 
-* Clone github repository from https://kiranmadansar@bitbucket.org/kiranmadansar/eid_project4.git
+* Clone this github repository
 * Uses sqlite3 as the database
 * Uses boto3 AWS Python SDK , can be installed by running `pip3 install boto3`
 * Uses matplotlib for plotting graphs , can be installed by running `pip3 install matplotlib`
